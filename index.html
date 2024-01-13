@@ -1,0 +1,130 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Calculator</title>
+    <style>*{
+        margin: 70px;
+        /*padding: 50px;*/
+        box-sizing: border-box;
+        /*background-color: #ecf0f3;*/
+    font-family: sans-serif;
+    outline: none;
+    background-image: url(space.jpg);
+    }
+    
+    .container{
+        height: 100vh;
+        display: flex;
+       
+        
+       
+      
+    }
+    .calculator{
+        background-color: #ecf0f3;
+        padding:70px;
+        border-radius: 30px;
+        box-shadow: inset 5px 5px 12px #ffffff,
+        5px 5px 12px rgba(243, 242, 242, 0.16);
+        display: grid;
+        justify-content: center;
+        grid-template-columns: repeat();
+        align-content: stretch;
+    }
+    input{
+        grid-column: span 4;
+    height: 70px;
+    width: 400px;
+    background-color: #ecf0f3;
+    box-shadow: inset -5px -5px 12px #ffffff,
+                  inset 5px 5px 12px rgba(0,0,0,.16);
+    border: none;
+    border-radius:30px ;
+    color: rgb(236, 228, 228);
+    font-size: 50px;
+    text-align: end;
+    margin: auto;
+    margin-top: 40px;
+    margin-bottom: 30px;
+    padding: 20px;
+    }
+    button{
+        height: 60px;
+        width: 60px;
+      /*  background-color: #ecf0f3;
+        box-shadow: inset -5px -5px 12px #ffffff,
+        5px 5px 12px rgba(0,0,0,.16);
+        border: none;
+        border-radius: 50%;*/
+        margin: 8px;
+        font-size: 16px;
+        font-family: sans-serif;
+        outline: none;
+        background-color: #ecf0f3;
+        
+            box-shadow: inset -5px -5px 12px #242323,
+        5px 5px 12px rgba(238, 236, 236, 0.656);
+        border-radius: 30px;
+        color: #ecf0f3;
+    }
+
+    .equal{
+        width: 115px;
+        border-radius: 40px;
+        background-color: #ecf0f3;
+        box-shadow: -5px -5px 12px #ffffff,
+        5px 5px 12px rgba(0,0,0,.16);;
+    }</style>
+</head>
+<body>
+    <div class="containr">
+        <div class="Calculator">
+            <input type="text" placeholder="0" id="output-screen">
+            <button onclick="Clear()">Cl</button>
+            <button onclick="del()">Del</button>
+            <button onclick="display('%')">%</button>
+            <button onclick="display('/')">/</button>
+            <button onclick="display('7')">7</button>
+            <button onclick="display('8')">8</button>
+            <button onclick="display('9')">9</button>
+            <button onclick="display('*')">*</button>
+            <button onclick="display('4')">4</button>
+            <button onclick="display('5')">6</button>
+            <button onclick="display('6')">6</button>
+            <button onclick="display('-')">-</button>
+            <button onclick="display('1')">1</button>
+            <button onclick="display('2')">2</button>
+            <button onclick="display('3')">3</button>
+            <button onclick="display('+')">+</button>
+            <button onclick="display('.')">.</button>
+            <button onclick="display('0')">0</button>
+            <button onclick="calculate()">=</button>
+        </div>
+    </div>
+    <script>
+        let outputScreen = document.getElementById("output-screen");
+        function display(num){
+        outputScreen.value += num;
+    }
+    function calculate(){
+        try{
+            outputScreen.value =eval(outputScreen.value);
+        }
+        catch(err)
+        {
+            alert("Invalid")
+        }
+    }
+    function Clear()
+    {
+        outputScreen.value ="";
+    }
+function del(){
+    outputScreen.value = outputScreen.value.slice(0,-1);
+
+}
+    </script>
+</body>
+</html>
